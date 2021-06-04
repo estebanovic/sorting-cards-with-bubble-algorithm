@@ -110,7 +110,17 @@ sortButton.onclick = function sort() {
 
     removeOldSorts();
 
-    for (let wall = cards.length - 1; wall >= 0; wall--) {
+    let subTitleRow = document.createElement('div');
+    subTitleRow.className = 'row m-2 newRow';
+
+    let subTitle = document.createElement('h4');
+    subTitle.className = 'd-inline text-light p-0';
+    subTitle.innerHTML = 'Sort: ';
+
+    subTitleRow.appendChild(subTitle);
+    container.appendChild(subTitleRow);
+
+    for (let wall = cards.length - 1; wall > 0; wall--) {
         for (let index = 0; index < wall; index++) {
             console.log(cards[index].value);
             if (parseInt(cards[index].value) > parseInt(cards[index + 1].value)) {
